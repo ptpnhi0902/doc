@@ -1,0 +1,34 @@
+<h1 style="background-color: aqua; border: 3px solid black;">Question: 4. The MIPS program is written as below: array: .word 10, 20, 30, 10, 20, 30 la $t0, array lw $t1...</h1>
+<div class="ugc-base question-body-text">
+<div class=""><p><img alt="4. The MIPS program is written as below: array: .word 10, 20, 30, 10, 20, 30 la $t0, array lw $t1, 0($t0) lw $t2, 4($t0) add" aria-describedby="fcp" src="https://media.cheggcdn.com/media/e9a/e9adba0c-8a38-4978-b064-8c3c5189a604/php0AxJ30.png" style="height:1024px;width:768px;"/></p>
+<div class="hidden" id="fcp">4. The MIPS program is written as below: array: .word 10, 20, 30, 10, 20, 30 la $t0, array lw $t1, 0($t0) lw $t2, 4($t0) add $t1,$t2, $t1 lw $t2, 8($t0) bne $t1,$t2, label sw $t2, 1c($t0) label: a. These instructions are executed in pipeline, please analyze the hazard problem in above MIPS program. [5 points] b. If MIPS architecture is included the FORWARDING technique, how many cycles does the above MIPS program take? [5 points) c. If MIPS architecture is included the FORWARDING and DETECTION (PREDICTION) techniques, at the end of clock cycle 7 when all instructions are in the pipeline. Please complete below table. [10 points) Value Registers and Signals Read data 1 in ID ALU result in EX Write data in ID WB in ID/EX for EX EX in ID/EX for EX WB in MEM/WB for WB </div></div>
+<span class="transcribed-text">Show transcribed image text</span> <span class="transcribed-image-text hidden">4. The MIPS program is written as below: array: .word 10, 20, 30, 10, 20, 30 la $t0, array lw $t1, 0($t0) lw $t2, 4($t0) add $t1,$t2, $t1 lw $t2, 8($t0) bne $t1,$t2, label sw $t2, 1c($t0) label: a. These instructions are executed in pipeline, please analyze the hazard problem in above MIPS program. [5 points] b. If MIPS architecture is included the FORWARDING technique, how many cycles does the above MIPS program take? [5 points) c. If MIPS architecture is included the FORWARDING and DETECTION (PREDICTION) techniques, at the end of clock cycle 7 when all instructions are in the pipeline. Please complete below table. [10 points) Value Registers and Signals Read data 1 in ID ALU result in EX Write data in ID WB in ID/EX for EX EX in ID/EX for EX WB in MEM/WB for WB </span>
+</div>
+<h1 style="background-color: aqua; border: 3px solid black;">Answer:</h1>
+<div class="answer-given-body ugc-base">
+<p><strong>Greetings!!</strong></p>
+<p>a. Hazards:</p>
+<ul>
+<li>I2 is dependant on I1. ie instruction I2 uses the data in the
+register $t0 before I1 complete the writing into it.</li>
+<li>Similarly, instruction I4 is dependant on I3. ie instruction I4
+uses the data on the register $t2, before the instruction I3 write
+the answer into it.</li>
+<li>Similarly, instruction I6 is dependant on I5. ie instruction I6
+uses the data on the register $t2, before the instruction I5 write
+the answer into it</li>
+<li>Instruction I6 causes a control hazard</li>
+</ul>
+<p><img alt="00 10 11 12 13 14 15 1 F INSTRUCTION 1 la $t0,array 2 lw $t1,0(to) 3 lw $t2,4($t0) 4 add $t1,$t2,$t1 5 lw $t2,8($t0) 6|bne $t" aria-describedby="dog" src="https://media.cheggcdn.com/coop/629/6297f48f-1f51-49e1-83fb-d839dee52b4c/1592398961864_image.png" style="height:161px;width:600px;"/></p>
+<p>b. Takes 11 cycles to complete the execution of the program.</p>
+<p><img alt="9 N 10 11 3 14 15 P| ד F INSTRUCTION 2 3 4 5 6 7 8 1 la $t0,array FDEM W 2 lw $t1,0(to) F DE M W 3 lw $t2,4($t0) F DEM w 4 ad" aria-describedby="doh" src="https://media.cheggcdn.com/coop/26b/26b20bd3-547a-436a-92d8-69c7b1f5074c/1592399760092_image.png" style="height:165px;width:600px;"/></p>
+<p>c. At the end of clock cycle 7:</p>
+<p>Read data 1 in ID - 30 in register $t1</p>
+<p>ALU result in EX - 8 in ALU</p>
+<p>Write data in ID -</p>
+<p>Write back in ID/EX - 30 in register $t2</p>
+<p>WB in MEM/WB sum 30 into register $t1</p>
+<p>Hope this helps</p>
+<p>Thank You</p>
+<div class="hidden" id="dog">00 10 11 12 13 14 15 1 F INSTRUCTION 1 la $t0,array 2 lw $t1,0(to) 3 lw $t2,4($t0) 4 add $t1,$t2,$t1 5 lw $t2,8($t0) 6|bne $t1,$t2, label 7 sw $t2,1C($to) 3 4 5 6 7 9 DE M w F DEM W FDE м. w F D E M W F D M FDE M F DE IRIS הח|ס|ד W w M W </div><div class="hidden" id="doh">9 N 10 11 3 14 15 P| ד F INSTRUCTION 2 3 4 5 6 7 8 1 la $t0,array FDEM W 2 lw $t1,0(to) F DE M W 3 lw $t2,4($t0) F DEM w 4 add $t1,$t2,$t1 FDE M W 5 lw $t2,8($t0) FDEM 6|bne $t1,$t2,label F DE 7 sw $t2,1C($t0) F D W M E W M w </div>
+</div>
